@@ -33,11 +33,9 @@ window.SITE = {
   role: "Web Developer",
   // Leave these as placeholders until you add your real details.
   contact: {
-    email: "your-email@example.com",
-    whatsapp: "https://wa.me/0000000000",
-    linkedin: "https://www.linkedin.com/in/your-profile",
-    github: "https://github.com/your-username",
-    upwork: "https://www.upwork.com/freelancers/your-profile",
+    email: "salmansharif1641@gmail.com",
+    whatsapp: "https://wa.me/8801635396039",
+    whatsappLabel: "+880 1635-396039",
     // Optional: a form backend (Formspree, Getform, Basin…). When empty the
     // form opens the visitor's email app with the message pre-filled.
     formEndpoint: ""
@@ -89,7 +87,11 @@ window.PORTFOLIO = {
     electronics: "Electronics & Gadgets",
     art: "Art & Prints",
     merch: "Merchandise & Entertainment",
-    toys: "Toys & Kids",
+    toys: "Toys, Kids & Babies",
+    automotive: "Automotive",
+    jewelry: "Jewelry",
+    sports: "Sports",
+    coffee: "Coffee",
     crafts: "Books & Crafts"
   },
 
@@ -194,13 +196,12 @@ window.PORTFOLIO = {
       summary: "Product and store website for Rotimatic, the automatic flatbread-making machine.",
       description: "Website for Rotimatic, a countertop kitchen robot that automatically makes fresh flatbreads. The site introduces the product and drives online sales.",
       type: "Product / D2C store",
-      tags: ["shopify", "ecommerce"],
-      industry: "retail",
-      tech: ["Shopify"],
+      tags: ["wordpress", "woocommerce", "ecommerce"],
+      industry: "electronics",
+      tech: ["WordPress", "WooCommerce"],
       features: ["Product storytelling", "Online checkout", "Responsive product pages"],
-      location: "Global",
-      featured: true,
-      verify: true
+      location: "Singapore",
+      featured: true
     },
     {
       id: "quiz-patente-tradotto",
@@ -1321,12 +1322,11 @@ window.PORTFOLIO = {
       summary: "Performance coilovers, air suspension and brake systems manufacturer.",
       description: "Website for KSport USA, a Mesa, Arizona manufacturer of coilovers, air suspension and brake systems, with product lines and financing options.",
       type: "Automotive e-commerce",
-      tags: ["shopify", "ecommerce"],
-      industry: "retail",
-      tech: ["Shopify"],
+      tags: ["wordpress", "woocommerce", "ecommerce"],
+      industry: "automotive",
+      tech: ["WordPress", "WooCommerce"],
       features: ["Product lines by vehicle", "Financing", "Dealer & contact info"],
-      location: "Arizona, USA",
-      verify: true
+      location: "Arizona, USA"
     },
     {
       id: "scuola-babbo-natale",

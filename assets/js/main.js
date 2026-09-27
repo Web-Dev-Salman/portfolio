@@ -776,7 +776,7 @@ export default async function Home() {
     }
     a.href = key === "email" ? `mailto:${val}` : val;
     const label = $("b", a);
-    if (label) label.textContent = key === "email" ? val : hostOf(val) + new URL(val).pathname.replace(/\/$/, "");
+    if (label) label.textContent = key === "email" ? val : contact[`${key}Label`] || hostOf(val) + new URL(val).pathname.replace(/\/$/, "");
   });
 
   const form = $("#contact-form");

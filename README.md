@@ -2,7 +2,7 @@
 
 A fast, interactive portfolio site built with **plain HTML, CSS and JavaScript**. There's no framework and no build step, and the only external requests are Google Fonts and live screenshots.
 
-It's built around **207 real client projects** (98 WordPress/other projects plus 109 Shopify stores), organised so visitors can quickly answer:
+It's built around **250 real client projects**: WordPress/Elementor sites, 109 Shopify stores and 45+ WooCommerce stores, organised so visitors can quickly answer:
 
 - *"What type of websites can this developer build?"*
 - *"Has this developer worked on projects similar to mine?"*
@@ -36,6 +36,7 @@ index.html                    Page markup (sections, SEO meta, JSON-LD)
 assets/css/styles.css         All styles (tokens → components → responsive)
 assets/js/projects.js         ★ Your data: site config + WordPress & other projects
 assets/js/projects-shopify.js ★ Your Shopify stores (one line per store)
+assets/js/projects-woocommerce.js ★ Your WooCommerce stores (one line per store)
 assets/js/screenshots.js      Local screenshot map (generated, optional)
 assets/js/main.js             Interactions, filtering, modal, form
 assets/img/favicon.svg
@@ -44,7 +45,7 @@ scripts/capture-screenshots.mjs  Optional: capture real screenshots locally
 
 ## Before publishing: fill these in
 
-1. **Contact details**: edit `window.SITE.contact` at the top of `assets/js/projects.js` (email, WhatsApp, LinkedIn, GitHub, Upwork). Until then, the links show as placeholders.
+1. **Contact details**: email and WhatsApp are set in `window.SITE.contact` at the top of `assets/js/projects.js`.
 2. **Contact form**: by default the form opens the visitor's email app with the message pre-filled. To receive submissions directly, create a free form endpoint (Formspree, Getform, Basin…) and paste its URL into `SITE.contact.formEndpoint`.
 3. **Your role per project**: each project falls back to `SITE.defaultRole`. Add `role: "…"` to a project to be specific, for example "Custom WooCommerce development and speed optimization".
 4. **Check the tech tags** (see below).
