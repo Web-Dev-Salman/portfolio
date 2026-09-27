@@ -2,7 +2,7 @@
 
 A fast, interactive portfolio site built with **plain HTML, CSS and JavaScript**. There's no framework and no build step, and the only external requests are Google Fonts and live screenshots.
 
-It's built around **98 real client projects** (108 live websites, counting an 11-site network), organised so visitors can quickly answer:
+It's built around **207 real client projects** (98 WordPress/other projects plus 109 Shopify stores), organised so visitors can quickly answer:
 
 - *"What type of websites can this developer build?"*
 - *"Has this developer worked on projects similar to mine?"*
@@ -34,7 +34,8 @@ It's built around **98 real client projects** (108 live websites, counting an 11
 ```
 index.html                    Page markup (sections, SEO meta, JSON-LD)
 assets/css/styles.css         All styles (tokens → components → responsive)
-assets/js/projects.js         ★ Your data: site config + every project
+assets/js/projects.js         ★ Your data: site config + WordPress & other projects
+assets/js/projects-shopify.js ★ Your Shopify stores (one line per store)
 assets/js/screenshots.js      Local screenshot map (generated, optional)
 assets/js/main.js             Interactions, filtering, modal, form
 assets/img/favicon.svg
@@ -63,18 +64,21 @@ Please correct any tags that are wrong. The filters rebuild automatically.
 
 | Filter | Projects | | Industry | Projects |
 |---|---|---|---|---|
-| WordPress | 94 | | Creative & Design | 22 |
-| Elementor | 74 | | Retail & Products | 14 |
-| Business | 47 | | Education & Coaching | 12 |
-| Corporate | 17 | | Local & Professional Services | 11 |
-| E-commerce | 16 | | SaaS & Technology | 9 |
-| Agencies & Studios | 16 | | Real Estate & Construction | 7 |
-| Multilingual / RTL | 15 | | Hospitality & Travel | 6 |
-| Landing Pages | 11 | | Health & Wellness | 5 |
-| WooCommerce | 10 | | Nonprofit & Events | 5 |
-| Shopify | 4 | | Industrial & Manufacturing | 4 |
-| Web Apps | 2 | | Media & Publishing | 2 |
-| | | | Food & Restaurants | 1 |
+| E-commerce | 125 | | Fashion & Accessories | 25 |
+| Shopify | 113 | | Creative & Design | 22 |
+| WordPress | 94 | | Retail & Products | 21 |
+| Elementor | 74 | | Food, Drink & Restaurants | 13 |
+| Business | 47 | | Beauty & Cosmetics | 12 |
+| Landing Pages | 31 | | Art & Prints | 12 |
+| Dropshipping | 22 | | Education & Coaching | 12 |
+| PageFly | 17 | | Local & Professional Services | 11 |
+| Corporate | 17 | | Home & Decor | 10 |
+| Agencies & Studios | 16 | | Electronics & Gadgets | 10 |
+| Multilingual / RTL | 15 | | SaaS & Technology | 10 |
+| WooCommerce | 10 | | Health & Wellness | 8 |
+| One-Product Stores | 3 | | Merchandise & Entertainment | 7 |
+| Collection Pages | 3 | | Real Estate & Construction | 7 |
+| Web Apps | 2 | | Hospitality & Travel · Pets · Nonprofit · others | 2–6 each |
 
 Some sites were grouped or merged:
 
@@ -94,7 +98,13 @@ Some sites were grouped or merged:
 
 ## Adding a project
 
-Copy any object in `projects` inside `assets/js/projects.js`:
+**Shopify store:** open `assets/js/projects-shopify.js`, copy a line inside the right group (PageFly, Dropshipping, One-product, Collection page or regular store) and edit it:
+
+```js
+["https://mystore.com/", "My Store", "fashion", "One-line description.", "London, UK"],
+```
+
+**Any other project:** copy any object in `projects` inside `assets/js/projects.js`:
 
 ```js
 {

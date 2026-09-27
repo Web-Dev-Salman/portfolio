@@ -50,9 +50,13 @@ window.PORTFOLIO = {
      hidden automatically, so React / Next.js appear as soon as you add one. */
   filters: [
     { key: "wordpress", label: "WordPress" },
+    { key: "shopify", label: "Shopify" },
     { key: "elementor", label: "Elementor" },
     { key: "woocommerce", label: "WooCommerce" },
-    { key: "shopify", label: "Shopify" },
+    { key: "pagefly", label: "PageFly" },
+    { key: "dropship", label: "Dropshipping" },
+    { key: "oneproduct", label: "One-Product Stores" },
+    { key: "collection", label: "Collection Pages" },
     { key: "react", label: "React" },
     { key: "nextjs", label: "Next.js" },
     { key: "ecommerce", label: "E-commerce" },
@@ -77,7 +81,16 @@ window.PORTFOLIO = {
     services: "Local & Professional Services",
     industrial: "Industrial & Manufacturing",
     media: "Media & Publishing",
-    food: "Food & Restaurants"
+    food: "Food, Drink & Restaurants",
+    fashion: "Fashion & Accessories",
+    beauty: "Beauty & Cosmetics",
+    pets: "Pets",
+    home: "Home & Decor",
+    electronics: "Electronics & Gadgets",
+    art: "Art & Prints",
+    merch: "Merchandise & Entertainment",
+    toys: "Toys & Kids",
+    crafts: "Books & Crafts"
   },
 
   projects: [

@@ -99,7 +99,7 @@
   projects.forEach((p) => {
     (p.location || "").split("/").forEach((part) => {
       const c = part.split(",").pop().trim();
-      if (c && !["—", "Global", "Asia"].includes(c)) countries.add(c);
+      if (c && !["—", "Global", "Asia", "Europe"].includes(c)) countries.add(c);
     });
   });
   const stats = {
