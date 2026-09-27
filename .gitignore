@@ -1,0 +1,17 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Node (only needed for the optional screenshot script)
+node_modules/
+package-lock.json
+
+# Logs & temp
+*.log
+*.tmp
