@@ -464,7 +464,7 @@ body.modal-open { overflow: hidden; }
   transition: border-color .25s, box-shadow .25s;
 }
 .field textarea { min-height: 140px; }
-.field label { position: absolute; left: 17px; top: 17px; color: var(--faint); pointer-events: none; transform-origin: 0 0; transition: transform .25s var(--ease), color .25s; }
+.field > label { position: absolute; left: 17px; top: 17px; color: var(--faint); pointer-events: none; transform-origin: 0 0; transition: transform .25s var(--ease), color .25s; }
 .field input:focus, .field textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 16%, transparent); }
 .field input:focus + label, .field input:not(:placeholder-shown) + label,
 .field textarea:focus + label, .field textarea:not(:placeholder-shown) + label { transform: translateY(-10px) scale(.78); color: var(--accent); }
@@ -482,6 +482,8 @@ body.modal-open { overflow: hidden; }
 .form-status { margin: 0; font-size: 14px; color: var(--muted); min-height: 1em; }
 .form-status.is-success { color: #22c55e; }
 .form-status.is-error { color: #f43f5e; }
+.form-fallback { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.form-fallback .btn { color: var(--text); }
 
 /* 14. Footer --------------------------------------------------------------- */
 .footer { padding: 34px 0; border-top: 1px solid var(--border); }

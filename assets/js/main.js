@@ -808,38 +808,45 @@ export default async function Home() {
     if (!ok) { fields.find((f) => f.getAttribute("aria-invalid") === "true")?.focus(); return; }
 
     const data = Object.fromEntries(new FormData(form));
+    if (data._honey) return; // spam bot filled the hidden field
     const btn = $("button[type=submit]", form);
+    const subject = `New project enquiry: ${data.type} — ${data.name}`;
+    const body = `Name: ${data.name}\nEmail: ${data.email}\nProject type: ${data.type}\n\n${data.message}`;
     status.className = "form-status";
 
-    if (contact.formEndpoint) {
-      btn.disabled = true;
-      $(".btn__label", btn).textContent = "Sending…";
-      try {
-        const res = await fetch(contact.formEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) });
-        if (!res.ok) throw new Error(res.statusText);
-        form.reset();
-        status.textContent = "Thanks! Your message is on its way — I'll reply soon.";
-        status.classList.add("is-success");
-      } catch {
-        status.textContent = "Something went wrong sending your message. Please try email instead.";
-        status.classList.add("is-error");
-      } finally {
-        btn.disabled = false;
-        $(".btn__label", btn).textContent = "Send message";
-      }
-      return;
-    }
-
-    if (!contact.email || isPlaceholder(contact.email)) {
-      status.textContent = "Contact details haven't been set up yet — add your email in assets/js/projects.js.";
+    // Backup ways to reach you if sending fails (e.g. page opened from a file, or offline).
+    const showFallback = (intro) => {
+      const gmail = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(contact.email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const mail = `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const wa = contact.whatsapp && !isPlaceholder(contact.whatsapp) ? `${contact.whatsapp}?text=${encodeURIComponent(`${subject}\n\n${body}`)}` : "";
+      status.innerHTML = `${escapeHTML(intro)}<span class="form-fallback">
+        <a class="btn btn--ghost btn--sm" href="${gmail}" target="_blank" rel="noopener">Send with Gmail</a>
+        ${wa ? `<a class="btn btn--ghost btn--sm" href="${wa}" target="_blank" rel="noopener">Send on WhatsApp</a>` : ""}
+        <a class="btn btn--ghost btn--sm" href="${mail}">Open email app</a></span>`;
       status.classList.add("is-error");
-      return;
+    };
+
+    if (!contact.formEndpoint) return showFallback("Choose how you'd like to send your message:");
+
+    btn.disabled = true;
+    $(".btn__label", btn).textContent = "Sending…";
+    try {
+      const res = await fetch(contact.formEndpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ ...data, _subject: subject, _template: "table", _captcha: "false" })
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || String(json.success) === "false") throw new Error(json.message || res.statusText);
+      form.reset();
+      status.textContent = "Thanks! Your message has been sent — I'll reply soon.";
+      status.classList.add("is-success");
+    } catch {
+      showFallback("Couldn't send the form right now. You can send the same message here instead:");
+    } finally {
+      btn.disabled = false;
+      $(".btn__label", btn).textContent = "Send message";
     }
-    const subject = `New project enquiry: ${data.type}`;
-    const body = `Name: ${data.name}\nEmail: ${data.email}\nProject type: ${data.type}\n\n${data.message}`;
-    location.href = `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    status.textContent = "Opening your email app with the message ready to send…";
-    status.classList.add("is-success");
   });
 
   /* ================================================================== INIT */

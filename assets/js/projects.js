@@ -36,9 +36,10 @@ window.SITE = {
     email: "salmansharif1641@gmail.com",
     whatsapp: "https://wa.me/8801635396039",
     whatsappLabel: "+880 1635-396039",
-    // Optional: a form backend (Formspree, Getform, Basin…). When empty the
-    // form opens the visitor's email app with the message pre-filled.
-    formEndpoint: ""
+    // Contact-form messages are delivered to your email by FormSubmit (free,
+    // no account). The FIRST message sends you an activation email — click
+    // "Activate" once and all future messages arrive in your inbox.
+    formEndpoint: "https://formsubmit.co/ajax/salmansharif1641@gmail.com"
   },
   defaultRole: "Website development — build, customization and responsive implementation"
 };
