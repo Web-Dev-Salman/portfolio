@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Salman Sharif — Web Developer CV</title>
+  <meta name="description" content="CV of Salman Sharif, web developer specializing in WordPress, WooCommerce, Shopify, Elementor, React and Next.js.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0f1629;
+      --text: #2b3245;
+      --muted: #667085;
+      --line: #e4e7ee;
+      --side: #101a33;
+      --side-text: #d7dcea;
+      --side-muted: #8f9ab8;
+      --accent: #5b3df5;
+      --accent-2: #0ea5b7;
+      --lime: #c6f432;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { margin: 0; background: #e9ebf1; color: var(--text); font: 400 9.2pt/1.45 "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+    h1, h2, h3 { font-family: "Space Grotesk", "Inter", Arial, sans-serif; color: var(--ink); margin: 0; }
+    a { color: inherit; text-decoration: none; }
+    ul { margin: 0; padding: 0; list-style: none; }
+
+    .toolbar { position: sticky; top: 0; z-index: 5; display: flex; gap: 10px; justify-content: center; padding: 12px; background: rgba(233,235,241,.9); backdrop-filter: blur(8px); }
+    .toolbar button, .toolbar a { font: 600 13px/1 "Inter", Arial, sans-serif; padding: 11px 18px; border-radius: 999px; border: 1px solid #c9cedb; background: #fff; color: var(--ink); cursor: pointer; }
+    .toolbar .primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+    .page {
+      width: 210mm; min-height: 297mm; margin: 0 auto 24px; background: #fff;
+      display: grid; grid-template-columns: 68mm 1fr; box-shadow: 0 20px 60px -30px rgba(15,22,41,.45);
+    }
+
+    /* Sidebar */
+    .side { background: var(--side); color: var(--side-text); padding: 12mm 8mm 10mm; }
+    .photo { width: 38mm; height: 38mm; margin: 0 auto 5mm; border-radius: 50%; padding: 1.2mm; background: linear-gradient(135deg, var(--lime), var(--accent-2), var(--accent)); }
+    .photo img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; border: 1.2mm solid var(--side); }
+    .side h2 { font-size: 9pt; letter-spacing: .14em; text-transform: uppercase; color: #fff; margin: 5.5mm 0 2.6mm; display: flex; align-items: center; gap: 2.5mm; }
+    .side h2::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,.15); }
+    .contact li { display: flex; gap: 2.5mm; align-items: flex-start; margin-bottom: 2.4mm; font-size: 8.6pt; word-break: break-word; }
+    .contact .ic { flex: 0 0 5.5mm; height: 5.5mm; border-radius: 1.5mm; display: grid; place-items: center; background: rgba(255,255,255,.08); color: var(--lime); font: 700 7pt/1 "Inter", Arial, sans-serif; }
+    .contact small { display: block; color: var(--side-muted); font-size: 7pt; text-transform: uppercase; letter-spacing: .08em; }
+    .skill-block { margin-bottom: 3.2mm; }
+    .skill-block h3 { color: var(--side-muted); font: 600 7.4pt/1 "Inter", Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 1.8mm; }
+    .tags { display: flex; flex-wrap: wrap; gap: 1.4mm; }
+    .tags span { font-size: 7.8pt; padding: .9mm 2.2mm; border-radius: 99px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); color: #fff; }
+    .tags span.hl { background: var(--lime); color: var(--side); border-color: var(--lime); font-weight: 600; }
+    .plain li { font-size: 8.5pt; padding-left: 3.5mm; position: relative; margin-bottom: 1.3mm; }
+    .plain li::before { content: ""; position: absolute; left: 0; top: 2.1mm; width: 1.4mm; height: 1.4mm; border-radius: 50%; background: var(--lime); }
+
+    /* Main */
+    .main { padding: 12mm 11mm 10mm 10mm; }
+    .name { font-size: 27pt; line-height: 1; letter-spacing: -.02em; }
+    .title { margin-top: 2.5mm; font: 600 11pt/1.3 "Inter", Arial, sans-serif; background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .stack-line { margin-top: 1.5mm; color: var(--muted); font-size: 8.8pt; }
+    .section { margin-top: 5mm; }
+    .section > h2 { font-size: 11pt; text-transform: uppercase; letter-spacing: .12em; display: flex; align-items: center; gap: 3mm; margin-bottom: 3mm; }
+    .section > h2::before { content: ""; width: 3.2mm; height: 3.2mm; border-radius: 1mm; background: linear-gradient(135deg, var(--accent), var(--accent-2)); }
+    .section > h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+    .profile { margin: 0; font-size: 9.2pt; }
+
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5mm; }
+    .stat { border: 1px solid var(--line); border-radius: 2.5mm; padding: 2.8mm 2.5mm; text-align: center; }
+    .stat b { display: block; font: 700 15pt/1 "Space Grotesk", Arial, sans-serif; color: var(--accent); }
+    .stat span { font-size: 7.4pt; color: var(--muted); line-height: 1.25; display: block; margin-top: 1.2mm; }
+
+    .job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; }
+    .job-head h3 { font-size: 11pt; }
+    .job-head .when { font-size: 8.4pt; color: var(--muted); white-space: nowrap; }
+    .job-sub { color: var(--accent); font-weight: 600; font-size: 8.8pt; margin: .8mm 0 2mm; }
+    .bullets li { position: relative; padding-left: 4mm; margin-bottom: 1.4mm; }
+    .bullets li::before { content: "▸"; position: absolute; left: 0; color: var(--accent); font-size: 8pt; top: .2mm; }
+
+    .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm 5mm; }
+    .proj-group { break-inside: avoid; }
+    .proj-group h3 { font: 700 8.2pt/1 "Inter", Arial, sans-serif; letter-spacing: .06em; text-transform: uppercase; color: var(--ink); margin-bottom: 1.8mm; display: flex; align-items: center; gap: 2mm; }
+    .proj-group h3 i { font-style: normal; font-weight: 600; font-size: 7.2pt; padding: .6mm 1.8mm; border-radius: 99px; background: #efeafe; color: var(--accent); letter-spacing: 0; text-transform: none; }
+    .proj-group li { font-size: 8.5pt; margin-bottom: 1.3mm; line-height: 1.35; }
+    .proj-group li b { color: var(--ink); font-weight: 600; }
+    .proj-group li a { color: var(--muted); font-size: 7.6pt; }
+
+    .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6mm 4mm; }
+    .services li { font-size: 8.6pt; padding-left: 4mm; position: relative; }
+    .services li::before { content: "✓"; position: absolute; left: 0; color: var(--accent-2); font-weight: 700; }
+
+    .foot { margin-top: 6mm; padding-top: 3mm; border-top: 1px solid var(--line); font-size: 7.8pt; color: var(--muted); display: flex; justify-content: space-between; gap: 4mm; }
+
+    @page { size: A4; margin: 0; }
+    @media print {
+      body { background: #fff; }
+      .toolbar { display: none; }
+      .page { margin: 0; box-shadow: none; min-height: 297mm; height: 297mm; overflow: hidden; }
+    }
+    @media screen and (max-width: 820px) {
+      .page { width: 100%; min-height: 0; grid-template-columns: 1fr; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .projects, .services { grid-template-columns: 1fr; }
+      .main { padding: 8mm 6mm; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <button class="primary" type="button" onclick="window.print()">Print / Save as PDF</button>
+    <a href="Salman-Sharif-CV.pdf" download>Download PDF</a>
+    <a href="../index.html">View portfolio</a>
+  </div>
+
+  <article class="page">
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="side">
+      <div class="photo"><img src="photo.jpg" alt="Salman Sharif"></div>
+
+      <h2>Contact</h2>
+      <ul class="contact">
+        <li><span class="ic">@</span><span><small>Email</small><a href="mailto:salmansharif1641@gmail.com">salmansharif1641@gmail.com</a></span></li>
+        <li><span class="ic">WA</span><span><small>WhatsApp / Phone</small><a href="https://wa.me/8801635396039">+880 1635-396039</a></span></li>
+        <li><span class="ic">⌂</span><span><small>Location</small>Bangladesh · Remote worldwide</span></li>
+        <li><span class="ic">↗</span><span><small>Portfolio</small><a href="https://web-dev-salman.github.io/portfolio/">web-dev-salman.github.io/portfolio</a></span></li>
+      </ul>
+
+      <h2>Skills</h2>
+      <div class="skill-block">
+        <h3>CMS &amp; E-commerce</h3>
+        <div class="tags"><span class="hl">WordPress</span><span class="hl">WooCommerce</span><span class="hl">Shopify</span><span>Elementor</span><span>PageFly</span><span>Custom WP development</span></div>
+      </div>
+      <div class="skill-block">
+        <h3>Frontend</h3>
+        <div class="tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React.js</span><span>Next.js</span></div>
+      </div>
+      <div class="skill-block">
+        <h3>Backend</h3>
+        <div class="tags"><span>PHP</span><span>MongoDB</span></div>
+      </div>
+
+      <h2>Specialties</h2>
+      <ul class="plain">
+        <li>Shopify home pages with PageFly</li>
+        <li>Dropshipping &amp; one-product stores</li>
+        <li>Multilingual &amp; RTL sites (Hebrew, Arabic)</li>
+        <li>Multi-site networks</li>
+        <li>Speed optimization &amp; bug fixing</li>
+      </ul>
+
+      <h2>Industries</h2>
+      <div class="tags">
+        <span>Fashion</span><span>Beauty</span><span>Food &amp; Coffee</span><span>Home &amp; Decor</span><span>Electronics</span><span>Pets</span><span>Hospitality</span><span>Real Estate</span><span>Automotive</span><span>SaaS</span>
+      </div>
+    </aside>
+
+    <!-- ================= MAIN ================= -->
+    <main class="main">
+      <header>
+        <h1 class="name">Salman Sharif</h1>
+        <p class="title">Web Developer — WordPress · WooCommerce · Shopify</p>
+        <p class="stack-line">Elementor · PageFly · React.js · Next.js · PHP · MongoDB · JavaScript · HTML · CSS</p>
+      </header>
+
+      <section class="section">
+        <h2>Profile</h2>
+        <p class="profile">
+          Web developer building fast, responsive, conversion-focused websites and online stores for businesses worldwide —
+          from Shopify and WooCommerce stores to WordPress &amp; Elementor sites, multilingual builds and multi-site networks,
+          plus speed optimization, redesigns and bug fixing after launch.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>At a glance</h2>
+        <div class="stats">
+          <div class="stat"><b>250+</b><span>portfolio projects</span></div>
+          <div class="stat"><b>28</b><span>countries served</span></div>
+          <div class="stat"><b>110+</b><span>Shopify stores</span></div>
+          <div class="stat"><b>55</b><span>WooCommerce stores</span></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Experience</h2>
+        <div class="job-head">
+          <h3>Web Developer — Freelance &amp; Client Projects</h3>
+          <span class="when">Remote</span>
+        </div>
+        <p class="job-sub">WordPress · WooCommerce · Shopify · Elementor · PageFly</p>
+        <ul class="bullets">
+          <li>Built and customized <b>110+ Shopify stores</b>, including PageFly home pages, dropshipping stores, one-product stores and custom collection pages.</li>
+          <li>Developed <b>55 WooCommerce stores</b> across fashion, beauty, coffee, jewelry, automotive, pets and home &amp; decor.</li>
+          <li>Delivered <b>WordPress &amp; Elementor websites</b> for agencies, SaaS companies, hotels, law firms, clinics, contractors and nonprofits.</li>
+          <li>Built a coordinated <b>network of 11 brand-specific websites</b> for a premium appliance-repair business in San Francisco.</li>
+          <li>Created <b>multilingual &amp; RTL websites</b> (Hebrew, Arabic, German, Spanish…) and handled <b>speed optimization, redesigns and bug fixing</b>.</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Selected projects</h2>
+        <div class="projects">
+          <div class="proj-group">
+            <h3>WooCommerce <i>55 stores</i></h3>
+            <ul>
+              <li><b>IluminaShop</b> — LED lighting store, Spain <a href="https://iluminashop.com/">iluminashop.com</a></li>
+              <li><b>Rotimatic</b> — robotic kitchen appliance, Singapore <a href="https://rotimatic.com/">rotimatic.com</a></li>
+              <li><b>Bloomscape</b> — houseplant delivery, USA <a href="https://bloomscape.com/">bloomscape.com</a></li>
+            </ul>
+          </div>
+          <div class="proj-group">
+            <h3>Shopify <i>110+ stores</i></h3>
+            <ul>
+              <li><b>Brooklyn Candle Studio</b> — PageFly home page <a href="https://brooklyncandlestudio.com/">brooklyncandlestudio.com</a></li>
+              <li><b>Helm Boots</b> — handcrafted boots, Austin <a href="https://helmboots.com/">helmboots.com</a></li>
+              <li><b>Lucyd</b> — smart audio eyewear <a href="https://www.lucyd.co/">lucyd.co</a></li>
+            </ul>
+          </div>
+          <div class="proj-group">
+            <h3>WordPress &amp; Elementor</h3>
+            <ul>
+              <li><b>Wint</b> — AI water-management SaaS <a href="https://wint.ai/">wint.ai</a></li>
+              <li><b>Gutman Museum of Art</b> — bilingual museum + shop <a href="https://www.gutmanmuseum.co.il/">gutmanmuseum.co.il</a></li>
+              <li><b>The Vera Hotel</b> — boutique hotel, Tel Aviv <a href="http://theverahotel.com/">theverahotel.com</a></li>
+            </ul>
+          </div>
+          <div class="proj-group">
+            <h3>Web apps &amp; networks</h3>
+            <ul>
+              <li><b>Quiz Patente Tradotto</b> — driving-test quiz in 105 languages <a href="https://quizpatentetradotto.com/">quizpatentetradotto.com</a></li>
+              <li><b>Appliance Repair SF</b> — 11-site brand network <a href="https://subzerorepairsf.com/">subzerorepairsf.com</a></li>
+              <li><b>A &amp; T Global IT</b> — e-learning course store <a href="https://atgic.ca/">atgic.ca</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <footer class="foot">
+        <span>Full portfolio with 250+ live projects: web-dev-salman.github.io/portfolio</span>
+        <span>salmansharif1641@gmail.com</span>
+      </footer>
+    </main>
+  </article>
+</body>
+</html>
